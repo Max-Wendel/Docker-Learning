@@ -94,7 +94,8 @@
 	- Redireciona a porta de referência da maquina para a porta do container.
 - `docker run -ti --mac-address [MAC_ADDRESS] [IMAGE]`
 	- Define um endereço _MAC_ a imagem.
-- 
+- `docker run [COMAND] --net=host [IMAGE]`
+	- Faz com que o _Stack_ de _networking_ seja utilizado no _host Docker_ e não no _container_. Ou seja, o _IP_ e outras informações de redes no _container_ será do _host_ e não do _container_.
 
 ## Comandos Personalizados
 
