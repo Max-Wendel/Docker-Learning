@@ -50,7 +50,7 @@
 	- Mostra todas as informações do container
 
 ## Comandos intermediários
----
+
 - `docker run [COMANDS] [IMAGE] [PARAMETERS]`
 	- Exemplo de parâmetros
 		- `--memory [X]m`
@@ -81,56 +81,56 @@
 					- "Builda", corretamente, o _Dockerfile_ com um nome e uma versão. 
 
 ## Comandos de Rede
----
-	- `docker run [COMAND] --dns 8.8.8.8 [IMAGE]`
-		- Passa um servidor dns para o container.
-	- `docker run [COMAND] --hostname [NAME] [IMAGE]`
-		- Define um nome ao container interno. Diferente do `--name` que define um nome ao container externo (visivel para o gerênciamento dos dockers, mas não pro container em si). 
-	- `docker run [COMAND] --link [CONTAINER_A] [PARAMETERS] [CONTAINER_B] `
-		- Deixa o conteiner `A` visível ao container `B`.
+
+- `docker run [COMAND] --dns 8.8.8.8 [IMAGE]`
+	-Passa um servidor dns para o container.
+- `docker run [COMAND] --hostname [NAME] [IMAGE]`
+	- Define um nome ao container interno. Diferente do `--name` que define um nome ao container externo (visivel para o gerênciamento dos dockers, mas não pro container em si). 
+- `docker run [COMAND] --link [CONTAINER_A] [PARAMETERS] [CONTAINER_B] `
+	- Deixa o conteiner `A` visível ao container `B`.
 
 ## Comandos Personalizados
----
-	- `docker inspect -f {{.Mounts}} [CONTAINER_ID]`
-		- Retorna o volume do host que o container está usando.
-	- `docker inspect [IMAGE]:[VERSION]`
-		- Retorna os detalhes de uma imagem contida em um container.
-	- `docker history [IMAGE]:[VERSION]`
-		- Retorna as informações sobre as camadas da imagem. Bom para ver a como foi a evolução do container.
+
+- `docker inspect -f {{.Mounts}} [CONTAINER_ID]`
+	- Retorna o volume do host que o container está usando.
+- `docker inspect [IMAGE]:[VERSION]`
+	- Retorna os detalhes de uma imagem contida em um container.
+- `docker history [IMAGE]:[VERSION]`
+	- Retorna as informações sobre as camadas da imagem. Bom para ver a como foi a evolução do container.
 
 ## Comandos auxiliares
-	- `ss -s`
-		- Verifica as portas que estão sendo usadas.
-	- `ss -a`
-		- Lista as portas usadas e os os processos.
-	- `ip addr`
-		- Apresenta o ip da maquina.
 
+- `ss -s`
+	- Verifica as portas que estão sendo usadas.
+- `ss -a`
+	- Lista as portas usadas e os os processos.
+- `ip addr`
+	- Apresenta o ip da maquina.
 # _Dockerfile_
----
-	- `FROM imagem:versão(opcional)`
-		- Define uma imagem base para montar o container em cima dela
-	- `RUN comando`
-		- Executa o comando quando rodar o container. Geralmente usado para instalar programas ao container. 
-	- `ADD arquivo /diretorio/`
-		- Importar um arquivo do diretório local para o container
-	- `CMD ["command1","command2",...]`
-		- Executa os comandos logo ao executar a imagem
-	- `LABEL` Description="Algum metadado"
-		- Adiciona metadados ao seu container, por exemplo, versão, fabricante, descrição e etc.
-	- `COPY arquivo /diretorio/`
-		- Somente copia um arquivo ou diretório para o seu container. Diferente do `ADD` que pega arquivos empacotados, por exemplo, `*.zip`, `*.rar`, `*.targz` e etc
-	- `ENTRYPOINT ["PROCESSO","EVENTO","AÇÃO"]`
-		- É o ponto de entrada quando você iniciar o container, ou seja, geralmente definimos no ENTRYPOINT o comando ou script que chama o processo responsável pela execução do container e que manterá o container vivo.
-	- `ENV name="value"`
-		- Adiciona uma variável de ambiente a seu container
-	- `EXPLOSE port`
-		- Define uma porta do container para ser exposta
-	- `USER nome_usuario`
-		- Define o usuário padrão do container.
-	- `WORKDIR diretorio`
-		- Define o diretório raiz do container
-	- `VOLUME diretorio`
-		- Define o volume do container
-	- `MAINTAINER maintainer maintainer@email.com`
-		- Informa quem é o manutenedor do container
+
+- `FROM imagem:versão(opcional)`
+	- Define uma imagem base para montar o container em cima dela
+- `RUN comando`
+	- Executa o comando quando rodar o container. Geralmente usado para instalar programas ao container. 
+- `ADD arquivo /diretorio/`
+	- Importar um arquivo do diretório local para o container
+- `CMD ["command1","command2",...]`
+	- Executa os comandos logo ao executar a imagem
+- `LABEL` Description="Algum metadado"
+	- Adiciona metadados ao seu container, por exemplo, versão, fabricante, descrição e etc.
+- `COPY arquivo /diretorio/`
+	- Somente copia um arquivo ou diretório para o seu container. Diferente do `ADD` que pega arquivos empacotados, por exemplo, `*.zip`, `*.rar`, `*.targz` e etc
+- `ENTRYPOINT ["PROCESSO","EVENTO","AÇÃO"]`
+	- É o ponto de entrada quando você iniciar o container, ou seja, geralmente definimos no ENTRYPOINT o comando ou script que chama o processo responsável pela execução do container e que manterá o container vivo.
+- `ENV name="value"`
+	- Adiciona uma variável de ambiente a seu container
+- `EXPLOSE port`
+	- Define uma porta do container para ser exposta
+- `USER nome_usuario`
+	- Define o usuário padrão do container.
+- `WORKDIR diretorio`
+	- Define o diretório raiz do container
+- `VOLUME diretorio`
+	- Define o volume do container
+- `MAINTAINER maintainer maintainer@email.com`
+	- Informa quem é o manutenedor do container
