@@ -88,6 +88,13 @@
 	- Define um nome ao container interno. Diferente do `--name` que define um nome ao container externo (visivel para o gerênciamento dos dockers, mas não pro container em si). 
 - `docker run [COMAND] --link [CONTAINER_A] [PARAMETERS] [CONTAINER_B] `
 	- Deixa o conteiner `A` visível ao container `B`.
+- `docker run [COMAND] --expose [PORT] [IMAGE]`
+	- Expõe a porta do container para o meio externo. Como o passo `EXPOSE` do _Dockerfile_.
+- `docker run [COMAND] --publish/-p [PORT_REF]:[CONTAINER_PORT]`
+	- Redireciona a porta de referência da maquina para a porta do container.
+- `docker run -ti --mac-address [MAC_ADDRESS] [IMAGE]`
+	- Define um endereço _MAC_ a imagem.
+- 
 
 ## Comandos Personalizados
 
@@ -106,6 +113,9 @@
 	- Lista as portas usadas e os os processos.
 - `ip addr`
 	- Apresenta o ip da maquina.
+- `iptables -t nat -L -n`
+	- Mostra a tabela de ips e seus respectivos redirecionamento.
+	
 # _Dockerfile_
 
 - `FROM imagem:versão(opcional)`
